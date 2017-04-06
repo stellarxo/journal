@@ -1,0 +1,75 @@
+
+<%= form_for @entry do |f| %>
+ 
+  <% if @entry.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@entry.errors.count, "error") %> prohibited
+        this entry from being saved:
+      </h2>
+      <ul>
+        <% @entry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= f.label :created_at %><br>
+    <%= f.label Time.now.utc %><br>
+    <%= f.hidden_field :created_at, value: Time.now.utc %>
+  </p>
+ 
+  <p>
+    <%= f.label :summary %><br>
+    <%= f.text_area :summary, placeholder: "Symptoms, side effects, etc..." %>
+  </p>
+
+  <p>
+    <%= f.label :steps %><br>
+    <%= f.text_field :steps %>
+  </p>
+
+  <p>
+    <%= f.label :nutrition %><br>
+    <%= f.text_area :nutrition %>
+  </p>
+
+  <p>
+    <%= f.label :exercise %><br>
+    <%= f.text_area :exercise %>
+  </p>
+
+  <p>
+    <%= f.label :water %><br>
+    <%= f.text_field :water %>
+  </p>
+
+  <p>
+    <% #TODO: change to drop down %>
+    <%= f.label :average_mood %><br>
+    <%= f.text_field :average_mood %>
+  </p>
+
+  <p>
+    <% #TODO: change to drop down %>
+    <%= f.label :energy_level %><br>
+    <%= f.text_area :energy_level %>
+  </p>
+
+  <p>
+    <%= f.label :sleep %><br>
+    <%= f.text_field :sleep %>
+  </p>
+
+  <p>
+    <%= f.label :meditation %><br>
+    <%= f.text_field :meditation %>
+  </p>
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+ 
+<% end %>

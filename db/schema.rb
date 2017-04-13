@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170406032910) do
+ActiveRecord::Schema.define(version: 20170413022002) do
 
   create_table "entries", force: :cascade do |t|
     t.text     "summary"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20170406032910) do
     t.integer  "energy_level"
     t.float    "sleep"
     t.float    "meditation"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
 end

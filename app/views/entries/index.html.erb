@@ -1,24 +1,29 @@
+<div class="container">
+  <h1>JOURNAL</h1>
 
-<h1>Listing entries</h1>
+  <%#= button_to "BUTTON: link version", users_path, :method => "get" %>
+  <button class="btn btn-lg btn-default"><%= link_to 'New entry', new_entry_path %></button>
 
-<%= link_to 'New entry', new_entry_path %>
+  <%= render 'report' %>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="4"></th>
-  </tr>
- 
-  <% @entries.each do |entry| %>
+  <h2>Past Entries</h2>
+  <table>
     <tr>
-      <td><%= entry.created_at %></td>
-      <td><%= entry.summary %></td>
-      <td><%= link_to 'Show', entry_path(entry) %></td>
-      <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
-      <td><%= link_to 'Destroy', entry_path(entry),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+      <th>Title</th>
+      <th>Text</th>
+      <th colspan="5"></th>
     </tr>
-  <% end %>
-</table>
+
+    <% @entries.each do |entry| %>
+        <tr>
+          <td><%= entry.created_at %></td>
+          <td><%= entry.summary %></td>
+          <td><%= link_to 'Show', entry_path(entry) %></td>
+          <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
+          <td><%= link_to 'Destroy', entry_path(entry),
+                          method: :delete,
+                          data: {confirm: 'Are you sure?'} %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

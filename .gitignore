@@ -1,0 +1,6 @@
+tmp
+**/.DS_Store
+.idea
+.gitignore.swp
+log/development.log
+
